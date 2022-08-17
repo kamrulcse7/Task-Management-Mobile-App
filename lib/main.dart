@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+
+import 'screens/welcome_screen.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Material App',
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Material App Bar'),
-        ),
-        body: Center(
-          child: Container(
-            child: Text('Hello World'),
-          ),
-        ),
+    SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        statusBarIconBrightness: Brightness.light,
       ),
+    );
+    return MaterialApp(
+      title: 'Task Management Mobile App',
+      debugShowCheckedModeBanner: false,
+      home: WelcomeScreen(),
     );
   }
 }
